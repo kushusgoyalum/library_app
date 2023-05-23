@@ -35,6 +35,15 @@ export async function getUsers() {
     return getUser(id)
   }
 
+  export async function createNewUser(id) {
+    const [result] = await pool.query(`
+    INSERT INTO users (status)
+    VALUES ('ACTIVE')
+    `)
+    const _id = result.insertId
+    return getUser(_id)
+  }
+
   export async function updateUser(username, email, password, phone_number, id) {
     const [result] = await pool.query(`
     UPDATE users 

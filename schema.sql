@@ -7,9 +7,5 @@ CREATE TABLE users (
   email VARCHAR(45) NOT NULL,
   `password` VARCHAR(30) NOT NULL,
   phone_number VARCHAR (10),
-  created DATETIME NOT NULL
+  status VARCHAR(15) NOT NULL DEFAULT 'INACTIVE'
 );
-
-INSERT INTO users (username, email, `password`, phone_number)
-VALUES 
-('kush', 'lkg@gmail.com', 'password', 1234567890)
