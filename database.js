@@ -3,7 +3,6 @@ import mysql from "mysql2"
 import dotenv from 'dotenv'
 
 dotenv.config()
-// const mysql = require('mysql2')
 
 const pool = mysql.createPool({
     host: process.env.MYSQL_HOST,
@@ -37,11 +36,12 @@ export async function getUsers() {
 
   export async function createNewUser(id) {
     const [result] = await pool.query(`
-    INSERT INTO users (status)
-    VALUES ('ACTIVE')
-    `)
-    const _id = result.insertId
-    return getUser(_id)
+    UPDATE users
+    SET status = 'ACTIVE'
+    WHERE id = ? 
+    `, [id])
+    // const _id = result.insertId
+    return getUser(id)
   }
 
   export async function updateUser(username, email, password, phone_number, id) {

@@ -2,11 +2,9 @@
 <html>
 <title>Stripe Payment Demo</title>
 <body>
-	<h4>Successfully Registered!! <br> But your status is still "INACTIVE". To make it active, please go through the payment procedure</h4>
+	<h4>Successfully Registered!! </h4><br> <H5>But your status is still "INACTIVE". To make it active, please go through the payment procedure</H5>
 	<h3>Welcome to Payment Gateway</h3>
-	<h2><%= id %></h2>
-	<form action="/payment" method="POST">
-	<!-- <input type="hidden" name="id" value="<% = id %>"> -->
+	<form action="/payment/10" method="POST">
 	<script
 		src="//checkout.stripe.com/v2/checkout.js"
 		class="stripe-button"
